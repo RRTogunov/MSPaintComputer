@@ -12,9 +12,9 @@ This is an example of the AND logic gate:
 
 The logic gate is executed as follows:
 1. Define colors for A and B (white = 0, black  = 1). 
-2. Using the colour-picker and bucket/fill tools, cycle through copy/pasting the colours in the "Bus" and "Probe" squares on the left into the leads on the right. When there is more than one colour in the source, cycle through them in order from left to right. 
+2. Using the colour-picker and bucket/fill tools, cycle through copy/pasting the colours from the logic/instruction sequence boxes on the left to their corresponding leads on the right. When there is more than one colour in the instruction, cycle through them from left to right. 
 
-The following is a step-by step execution of the above instruction:
+The following is a step-by-step execution of the above instruction for the AND gate:
 
 ![example_AND](media/example_AND_logic_gate.png)
 
