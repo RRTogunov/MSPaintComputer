@@ -20,22 +20,21 @@ The following is a step-by step execution of the above instruction:
 
 ## Full set of logic gates
 
+The following is the full set of logic gates as well as bridges and buffers, which are used either to hold values to prevent back-propagation or to cross wires.
+
 ![example_AND](logic_gates.png)
 
 ## Example GIFs
-Ripple-carry adder 203 + 110 = 313 (in binary: 11001011 + 01101110 = 00111001 + carry 1):
+Ripple-carry adder calculating 203 + 110 = 313 (in binary: 11001011 + 01101110 = 00111001 + carry 1):
 
 ![ripple](media/8_bit_ripple_adder.gif)
 
-adder/subtractor for 10+3=13 (in binary: 1010 + 11 = 1101):
+adder/subtractor calculating 10 + 3 = 13 (in binary: 1010 + 11 = 1101):
 
 ![Add/Sub 10+3](media/add_sub_10+3.gif)
 
-Adder/subtractor for 8-3 = 5 (in binary: 1000 - 11 = 101):
+Adder/subtractor calculating 8 - 3 = 5 (in binary: 1000 - 11 = 101):
 
 ![Add/Sub 8-3](media/add_sub_8-3.gif)
 
 
-
-
-Tip: press "b" to activate the fill tool, press "i" to activate the colour-picker tool (when you click to select a colour, it will automatically switch back to the fill tool, so you only need to press "b" once at the start)
