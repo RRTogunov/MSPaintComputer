@@ -28,6 +28,15 @@ More complex circuits may require additional space, therefore, future circuits w
 
 ![logic_gates_mini](circuits/logic_gates.png)
 
+## Implemented circuits
+The following circuits have been implemented thus far:
+- all logic gates (AND, OR, NOT, NAND, NOR, XOR, XNOR, and Buffer)
+- half-adder
+- full adder
+- 8-bit ripple-carry adder
+- 8-bit adder/subtractor
+- 4-bit ALU with (4-bit adder/subtractor with flags for carry, zero, and negative) 
+
 ## Execution 
 
 Tip: press "b" to activate the fill tool, press "i" to activate the colour-picker tool (when you click to select a colour, it will automatically switch back to the fill tool, so you only need to press "b" once at the start).
