@@ -2,7 +2,7 @@
 
 What started as a joke about the worst way to do statistics, turned into an cognitive itch, and side hobby. 
 
-I desigend a full set of logic gates that function natively within MS Paint using only the eye-dropper and the bucket/fill tools. These were combined to make an 8-bit ripple-carry adder as well as an 8-bit adder/subtractor circuit.
+I designed a full set of logic gates that function natively within MS Paint using only the eye-dropper and the bucket/fill tools. These were combined to make an 8-bit ripple-carry adder as well as an 8-bit adder/subtractor circuit.
 
 ## Anatomy of a Logic Gate 
 
@@ -22,7 +22,11 @@ The following is a step-by-step execution of the above instruction for the AND g
 
 The following is the full set of logic gates as well as bridges and buffers, which are used either to hold values to prevent back-propagation or to cross wires.
 
-![example_AND](logic_gates.png)
+![logic_gates_large](circuits/large_leads/logic_gates.png)
+
+More complex circuits may require additional space, therefore, future circuits will use more compact design of logic gates:
+
+![logic_gates_mini](circuits/logic_gates.png)
 
 ## Example GIFs
 Ripple-carry adder calculating 203 + 110 = 313 (in binary: 11001011 + 01101110 = 00111001 + carry 1):
