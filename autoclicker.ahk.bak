@@ -5,14 +5,13 @@
 CapsLock & `::{
 	;;;;;;;; 100% circles ;;;;;;;;;;;;;;;;;;
 	; initial parameters
-    xpos_0  := 1843 ;1842
-    ypos_0 := 289
-    dx_lead := 21 ; 24
-    dx_inst := 2 ; 5
-    dx_col := 50
-    dy_row := 13
-    dt := 20
-
+	xpos_0  := 1842
+	ypos_0 := 289
+	dx_lead := 24
+	dx_inst := 5
+	dx_col := 50
+	dy_row := 13
+	dt := 20
 	; init positions
 	xpos_i := xpos_0
 	ypos_i := ypos_0
@@ -72,13 +71,3 @@ CapsLock & `::{
 	;	}
 	;}
 }
-
-; Secondary hotkey - only active to stop the script
-#HotIf g_KeepRunning
-Esc::{
-    global g_KeepRunning
-    g_KeepRunning := false
-    ToolTip("Stopping script...", 100, 100)
-    SetTimer(() => ToolTip(), -2000)
-}
-#HotIf
