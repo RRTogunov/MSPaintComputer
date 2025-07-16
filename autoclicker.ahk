@@ -3,10 +3,16 @@
 
 ; MS Paint logic gate auto-clicker triggered by hotkey: CapsLock + `
 CapsLock & `::{
+	; check if using classic MS paint
+	classic_paint := WinActive("ahk_exe mspaint1.exe") > 0
+
 	;;;;;;;; 100% circles ;;;;;;;;;;;;;;;;;;
+
     ; initial parameters
-    xpos_0  := 1843 ;1842
-    ypos_0 := 289
+    xpos_0  := 1843 + classic_paint*6 ;1842
+    ypos_0 := 289 - classic_paint*36
+
+
     dx_lead := 21 ; 24
     dx_inst := 2 ; 5
     dx_col := 50
@@ -20,42 +26,60 @@ CapsLock & `::{
 	; setup window
 	WinMaximize "A"  ; maximise window
 	sleep(10)
-	Send("^0")  ; zoom to 100%
+	if classic_paint {
+		MouseClick(, 165, 53)
+		MouseClick(, 137, 99)
+		MouseClick(, 104, 51)
+	} else {
+		Send("^0")  ; zoom to 100%
+	}
 	sleep(10)
-	MouseClick(, 1888, 1057, 5)  ; move to right
-	MouseClick(, 1911, 204, 5)  ; move to top
+	MouseClick(, 1888 - classic_paint*12, 1057 + classic_paint*48, 5)  ; move to right
+	MouseClick(, 1911, 204 - classic_paint*2, 5)  ; move to top
 	sleep(10)
 
     ; get first colour
     col_i := PixelGetColor(xpos_i, ypos_i, "RGB")
-    Send("p")  ; get bucket tool ready
-	sleep(10)
-	send("b")
-	sleep(10)
-	Send("i")
-	MouseClick(, 1873, 199, 2)
-    ; loop
-	While (col_i != "0xED1C24")
-	{
-		Sleep(dt)
-		send("i")  ; get eye-droslepper tool ready
-		MouseClick(, xpos_i, ypos_i)  ; copy first colour
-		MouseClick(, xpos_i + dx_lead, ypos_i)  ; paste colour
-		Sleep(dt)
-		send("i")
-		MouseClick(, xpos_i + dx_inst, ypos_i)  ; copy second colour
-		MouseClick(, xpos_i + dx_lead, ypos_i)  ; paste colour
-		; update y position
-		ypos_i := ypos_i + dy_row
-		; check stop colour
-		col_i := PixelGetColor(xpos_i, ypos_i, "RGB")
-		; move to next column
-		if (col_i = "0xFFAEC9")
-		{
-			xpos_i := xpos_i - dx_col  ; update x
-			ypos_i := ypos_0  ; reset y
-		}
+	if classic_paint {
+		MouseClick(, 313, 95)  ; get bucket tool ready
+	} else {
+		Send("p")  ; get bucket tool ready
+		sleep(10)
+		send("b")
+		sleep(10)
+		Send("i")
 	}
+
+    ; loop
+   While (g_KeepRunning && col_i != "0xED1C24" && ypos_i < 1051) {
+        Sleep(dt)
+		if classic_paint {
+			MouseClick(, 315, 131)  ; select eye dropper tool
+		} else {
+			Send("i")
+		}
+        MouseClick(, xpos_i, ypos_i)  ; copy first colour
+		Sleep(5)
+        MouseClick(, xpos_i + dx_lead, ypos_i)  ; paste colour
+        Sleep(dt)
+        if classic_paint {
+			MouseClick(, 315, 131)  ; select eye dropper tool
+		} else {
+			Send("i")
+		}
+        MouseClick(, xpos_i + dx_inst, ypos_i)  ; copy second colour
+		Sleep(5)
+        MouseClick(, xpos_i + dx_lead, ypos_i)  ; paste colour
+
+        ypos_i += dy_row
+		;Send("i")
+        col_i := PixelGetColor(xpos_i, ypos_i, "RGB")
+
+        if (col_i = "0xFFAEC9") {
+            xpos_i -= dx_col
+            ypos_i := ypos_0
+        }
+    }
 	;;;;;;;; 200% circles ;;;;;;;;;;;;;;;;;;
 	;; initial parameters
 	;xpos_i := 1760
