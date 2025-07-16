@@ -41,7 +41,7 @@ The following circuits have been implemented thus far:
 
 Tip: press "b" to activate the fill tool, press "i" to activate the colour-picker tool (when you click to select a colour, it will automatically switch back to the fill tool, so you only need to press "b" once at the start).
 
-To expedite execution, included in the repository is autohotkey (V2) autoclicker called autoclicker.ahk, which is triggered using the shortcut: Capslock + `. Current autoclicker assumes circuit is made within example grid_template.png, that paint is open at 100% zoom, scrolled to the top right (with excess canvas extending past screen to bottom left), and a screen resoltion of 1920 x 1200.
+To expedite execution, included in the repository is autohotkey (V2) autoclicker called autoclicker.ahk, which is triggered using the shortcut: Capslock + `. Current autoclicker assumes circuit is made within example grid_template.png and a screen resoltion of 1920 x 1200.
 
 ## Example GIFs
 Ripple-carry adder calculating 203 + 110 = 313 (in binary: 11001011 + 01101110 = 00111001 + carry 1):
