@@ -4,23 +4,37 @@
 ; MS Paint logic gate auto-clicker triggered by hotkey: CapsLock + `
 CapsLock & `::{
 	;;;;;;;; 100% circles ;;;;;;;;;;;;;;;;;;
-	; initial parameters
+    ; initial parameters
     xpos_0  := 1843 ;1842
     ypos_0 := 289
     dx_lead := 21 ; 24
     dx_inst := 2 ; 5
     dx_col := 50
     dy_row := 13
-    dt := 20
+    dt := 15
 
-	; init positions
-	xpos_i := xpos_0
-	ypos_i := ypos_0
-	; get first colour
-	col_i := PixelGetColor(xpos_i, ypos_i, "RGB")
-	send("b")  ; get bucket tool ready
+    ; init positions
+    xpos_i := xpos_0
+    ypos_i := ypos_0
 
-	; loop
+	; setup window
+	WinMaximize "A"  ; maximise window
+	sleep(10)
+	Send("^0")  ; zoom to 100%
+	sleep(10)
+	MouseClick(, 1888, 1057, 5)  ; move to right
+	MouseClick(, 1911, 204, 5)  ; move to top
+	sleep(10)
+
+    ; get first colour
+    col_i := PixelGetColor(xpos_i, ypos_i, "RGB")
+    Send("p")  ; get bucket tool ready
+	sleep(10)
+	send("b")
+	sleep(10)
+	Send("i")
+	MouseClick(, 1873, 199, 2)
+    ; loop
 	While (col_i != "0xED1C24")
 	{
 		Sleep(dt)
