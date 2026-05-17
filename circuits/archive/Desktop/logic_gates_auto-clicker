@@ -1,0 +1,7 @@
+
+xpos := 150
+ypos := 390
+send("b")
+string_copy := PixelGetColor(xpos, ypos, "RGB")
+send("i")
+MouseGetPos(&xpos, &ypos)
